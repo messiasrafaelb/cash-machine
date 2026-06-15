@@ -1,0 +1,21 @@
+# Maven
+target/
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+#Vscode
+.vscode/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos compilados Java
+*.class
+
+# Arquivo de anotação
+notes.txt
