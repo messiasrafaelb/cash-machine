@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
+import domain.repository.sequence.UserSequenceRepository;
+
 import static domain.helper.CsvPaths.USER_SEQUENCE;
 
 public class UserSequenceRepositoryTest {

@@ -1,4 +1,4 @@
-package domain.repository;
+package domain.repository.sequence;
 
 import java.io.FileReader;
 import com.opencsv.CSVReader;

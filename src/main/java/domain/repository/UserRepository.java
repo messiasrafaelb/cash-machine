@@ -14,6 +14,7 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import domain.interfaces.RepositoryCrud;
 import domain.interfaces.RepositorySequence;
 import domain.model.User;
+import domain.repository.sequence.UserSequenceRepository;
 
 import static common.CsvPaths.*;
 import static common.Messages.MSG_CSV_READ_EXCEPTION;
@@ -61,7 +62,7 @@ public class UserRepository implements RepositoryCrud<User> {
             saveAllUsers(users);
         } else {
             throw new IllegalArgumentException(
-                String.format(MSG_USER_NOT_FOUND_EXCEPTION, id));
+                    String.format(MSG_USER_NOT_FOUND_EXCEPTION, id));
         }
     }
 
