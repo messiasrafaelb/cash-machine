@@ -35,19 +35,19 @@ O sistema foi desenhado seguindo os padrões de arquitetura em camadas (**MVC** 
 ## 📂 Estrutura de Diretórios e Banco de Dados (CSV)
 
 ```text
-├── data/
-│   ├── bank.csv                  # Tabela de Bancos (Referência Estática)
-│   ├── bank_account.csv          # Tabela de Contas (Relacional com FK para User e Bank)
-│   └── user.csv                  # Tabela de Usuários (Dados Pessoais)
-├── sequence/
-│   ├── bank_account_sequence.csv # Controla o auto-incremento de ID das contas
-│   └── user_sequence.csv         # Controla o auto-incremento de ID dos usuários
+├── data/                               # Tabela de entidades
+│   ├── bank.csv                  
+│   ├── bank_account.csv          
+│   └── user.csv                  
+├── sequence/                           # Tabela de sequences, o auto-incremento de ID's das entidades
+│   ├── bank_account_sequence.csv
+│   └── user_sequence.csv
 └── src/
     └── main/java/
-        ├── common/               # Constantes e strings globais do sistema
-        ├── controller/           # Camada de controle de fluxo e DTOs
-        ├── domain/               # Entidades de Modelo e Interfaces
-        ├── repository/           # Persistência e leitura/escrita OpenCSV
-        ├── security/             # Criptografia de senhas (BCrypt)
-        ├── view/                 # Interface CLI (Telas do terminal)
+        ├── common/                     # Constantes e strings globais do sistema
+        ├── controller/                 # Camada de controle de fluxo e DTOs
+        ├── domain/                     # Entidades de Modelo e Interfaces
+        ├── repository/                 # Persistência e leitura/escrita OpenCSV
+        ├── security/                   # Criptografia de senhas (BCrypt)
+        ├── view/                       # Interface CLI (Telas do terminal)
         └── CashMachineApplication.java # Classe raiz (Método Main)
