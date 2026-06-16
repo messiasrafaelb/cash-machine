@@ -21,6 +21,13 @@ public class User {
     public User() {
     }
 
+    public User(Integer id, String cpf, String name, String phone) {
+        this.id = id;
+        this.cpf = cpf;
+        this.name = name;
+        this.phone = phone;
+    }
+
     public Integer getId() {
         return id;
     }

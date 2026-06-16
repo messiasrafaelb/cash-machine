@@ -17,10 +17,8 @@ import domain.model.User;
 import domain.repository.sequence.UserSequenceRepository;
 
 import static common.CsvPaths.*;
-import static common.Messages.MSG_CSV_READ_EXCEPTION;
-import static common.Messages.MSG_CSV_SAVE_EXCEPTION;
-import static common.Messages.MSG_USER_NOT_FOUND_EXCEPTION;
-import static common.Numbers.ZERO;
+import static common.Messages.*;
+import static common.Numbers.*;
 
 public class UserRepository implements RepositoryCrud<User> {
 
