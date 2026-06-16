@@ -48,6 +48,7 @@ O sistema foi desenhado seguindo os padrões de arquitetura em camadas (**MVC** 
         ├── controller/                 # Camada de controle de fluxo e DTOs
         ├── domain/                     # Entidades de Modelo e Interfaces
         ├── repository/                 # Persistência e leitura/escrita OpenCSV
+        ├── service/                    # Regras de negócio
         ├── security/                   # Criptografia de senhas (BCrypt)
         ├── view/                       # Interface CLI (Telas do terminal)
         └── CashMachineApplication.java # Classe raiz (Método Main)
