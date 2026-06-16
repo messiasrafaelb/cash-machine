@@ -17,7 +17,7 @@ public class CashMachineApplication {
                 BankResponse selectedBank = bankView.selectBank(scanner);
 
                 if (selectedBank == null) {
-                    System.out.println("\nObrigado por utilizar o Caixa Eletrônico Multibanco. Até mais!");
+                    System.out.println("\nObrigado por utilizar o Caixa Eletronico Multibanco. Ate mais!");
                     running = false;
                     continue;
                 }

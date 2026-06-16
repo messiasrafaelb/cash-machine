@@ -28,18 +28,4 @@ public class Bank {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	@Override
-	public String toString() {
-		return """
-				========================================
-				DADOS DO BANCO
-				========================================
-				🆔 ID: %d
-				🏦 Nome: %s
-				========================================
-				"""
-				.formatted(id, name);
-	}
-
 }

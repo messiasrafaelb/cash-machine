@@ -22,6 +22,8 @@ import static common.Numbers.*;
 
 public class UserRepository implements RepositoryCrud<User> {
 
+    private static final String MSG_USER_NOT_FOUND_EXCEPTION = "Usuário com ID %d não encontrado.";    
+
     private final RepositorySequence sequenceRepository = new UserSequenceRepository();
 
     @Override
@@ -87,8 +89,8 @@ public class UserRepository implements RepositoryCrud<User> {
                     .build();
 
             beanToCsv.write(users);
-        } catch (Exception e) {
-            throw new RuntimeException(MSG_CSV_SAVE_EXCEPTION, e);
+        } catch (Exception ex) {
+            throw new RuntimeException(MSG_CSV_SAVE_EXCEPTION, ex);
         }
     }
 

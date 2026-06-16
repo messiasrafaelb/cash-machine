@@ -21,6 +21,8 @@ import static common.Numbers.*;
 
 public class BankAccountRepository implements RepositoryCrud<BankAccount> {
 
+    public static final String MSG_ACCOUNT_NOT_FOUND_EXCEPTION = "Conta Bancária com ID %d não encontrada.";
+
     private final RepositorySequence sequenceRepository = new BankAccountSequenceRepository();
 
     @Override
@@ -93,8 +95,8 @@ public class BankAccountRepository implements RepositoryCrud<BankAccount> {
                     .build();
 
             beanToCsv.write(accounts);
-        } catch (Exception e) {
-            throw new RuntimeException(MSG_CSV_SAVE_EXCEPTION, e);
+        } catch (Exception ex) {
+            throw new RuntimeException(MSG_CSV_SAVE_EXCEPTION, ex);
         }
     }
 }

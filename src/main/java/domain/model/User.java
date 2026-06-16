@@ -59,19 +59,4 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    @Override
-    public String toString() {
-        return """
-                ========================================
-                DADOS DO USUÁRIO
-                ========================================
-                🆔 ID: %d
-                👤 Nome: %s
-                📄 CPF: %s
-                📞 Telefone: %s
-                ========================================"""
-                .formatted(id, name, formatCpf(cpf), phone);
-    }
-
 }

@@ -11,7 +11,7 @@ public class BankView {
 
     public BankResponse selectBank(Scanner scanner) {
         while (true) {
-            System.out.println("\n========= CAIXA ELETRÔNICO MULTIBANCO =========");
+            System.out.println("\n========= CAIXA ELETRONICO MULTIBANCO =========");
             System.out.println("Selecione o banco desejado para operar:");
             
             List<BankResponse> banks = bankController.listAllBanks();
@@ -37,9 +37,9 @@ public class BankView {
                 if (selected != null) {
                     return selected;
                 }
-                System.out.println("Opção inválida! Selecione um banco da lista.");
+                System.out.println("Opcao invalida! Selecione um banco da lista.");
             } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida! Digite apenas números.");
+                System.out.println("Entrada invalida! Digite apenas numeros.");
             }
         }
     }

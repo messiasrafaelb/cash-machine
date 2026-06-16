@@ -5,6 +5,7 @@ import controller.dto.BankAccountRequest;
 import controller.dto.BankAccountResponse;
 import controller.dto.BankResponse;
 import controller.dto.UserResponse;
+import java.io.Console;
 import java.util.Scanner;
 
 public class BankAccountView {
@@ -25,16 +26,18 @@ public class BankAccountView {
             switch (choice) {
                 case "1" -> {
                     BankAccountResponse account = loginFlow(scanner, selectedBank.id());
-                    if (account != null) return account;
+                    if (account != null)
+                        return account;
                 }
                 case "2" -> {
                     BankAccountResponse account = registerFlow(scanner, selectedBank.id());
-                    if (account != null) return account;
+                    if (account != null)
+                        return account;
                 }
                 case "3" -> {
                     return null;
                 }
-                default -> System.out.println("Opção invalida.");
+                default -> System.out.println("Opcao invalida.");
             }
         }
     }
@@ -43,12 +46,13 @@ public class BankAccountView {
         System.out.println("\n--- LOGIN ---");
         System.out.print("E-mail da Conta: ");
         String email = scanner.nextLine();
+
         System.out.print("Senha: ");
-        String password = scanner.nextLine();
+        String password = readSecurePassword(scanner);
 
         BankAccountResponse account = accountController.login(email, password, bankId);
         if (account == null) {
-            System.out.println("Credenciais inválidas para este banco!");
+            System.out.println("Credenciais invalidas para este banco!");
         } else {
             System.out.println("Login efetuado com sucesso!");
         }
@@ -57,13 +61,15 @@ public class BankAccountView {
 
     private BankAccountResponse registerFlow(Scanner scanner, Integer bankId) {
         UserResponse user = userView.registerNewUser(scanner);
-        if (user == null) return null;
+        if (user == null)
+            return null;
 
-        System.out.println("\n--- CREDENCIAIS DA CONTA BANCÁRIA ---");
+        System.out.println("\n--- CREDENCIAIS DA CONTA BANCARIA ---");
         System.out.print("Defina o e-mail de acesso da conta: ");
         String email = scanner.nextLine();
+
         System.out.print("Defina a senha da conta: ");
-        String password = scanner.nextLine();
+        String password = readSecurePassword(scanner);
 
         BankAccountRequest request = new BankAccountRequest(email, password);
         BankAccountResponse newAccount = accountController.createAccount(request, user.id(), bankId);
@@ -75,12 +81,22 @@ public class BankAccountView {
         return newAccount;
     }
 
+    private String readSecurePassword(Scanner scanner) {
+        Console console = System.console();
+        if (console != null) {
+            char[] passwordArray = console.readPassword();
+            return new String(passwordArray);
+        } else {
+            return scanner.nextLine();
+        }
+    }
+
     public void showTransactionMenu(Scanner scanner, BankAccountResponse loggedAccount) {
         BankAccountResponse currentAccount = loggedAccount;
         boolean sessionActive = true;
 
         while (sessionActive) {
-            System.out.println("\n========= OPERAÇÕES BANCARIAS =========");
+            System.out.println("\n========= OPERACOES BANCARIAS =========");
             System.out.printf("Conta: %s | Agencia: %s%n", currentAccount.number(), currentAccount.agency());
             System.out.printf("Saldo Atual: R$ %.2f%n", currentAccount.balance());
             System.out.println("------------------------------------------");
@@ -94,12 +110,12 @@ public class BankAccountView {
 
             switch (choice) {
                 case "1" -> {
-                    System.out.print("Digite o valor do depósito: R$ ");
+                    System.out.print("Digite o valor do deposito: R$ ");
                     double amount = Double.parseDouble(scanner.nextLine());
                     BankAccountResponse updated = accountController.deposit(currentAccount.id(), amount);
                     if (updated != null) {
                         currentAccount = updated;
-                        System.out.println("Depósito realizado com sucesso!");
+                        System.out.println("Deposito realizado com sucesso!");
                     }
                 }
                 case "2" -> {
@@ -112,22 +128,22 @@ public class BankAccountView {
                     }
                 }
                 case "3" -> {
-                    System.out.print("Digite o número da conta de destino: ");
+                    System.out.print("Digite o numero da conta de destino: ");
                     String targetNum = scanner.nextLine();
-                    System.out.print("Digite o valor da transferência: R$ ");
+                    System.out.print("Digite o valor da transferencia: R$ ");
                     double amount = Double.parseDouble(scanner.nextLine());
-                    
+
                     BankAccountResponse updated = accountController.transfer(currentAccount.id(), targetNum, amount);
                     if (updated != null) {
                         currentAccount = updated;
-                        System.out.println("Transferência concluída com sucesso!");
+                        System.out.println("Transferencia concluida com sucesso!");
                     }
                 }
                 case "4" -> {
-                    System.out.println("Efetuando logout... Até logo!");
+                    System.out.println("Efetuando logout... Ate logo!");
                     sessionActive = false;
                 }
-                default -> System.out.println("Opção inválida.");
+                default -> System.out.println("Opção invalida.");
             }
         }
     }
