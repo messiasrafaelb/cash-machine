@@ -1,7 +1,5 @@
 package domain.model;
 
-import static domain.util.CpfMask.formatCpf;
-
 import com.opencsv.bean.CsvBindByName;;
 
 public class User {
