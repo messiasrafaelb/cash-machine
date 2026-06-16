@@ -34,7 +34,7 @@ public class BankAccountView {
                 case "3" -> {
                     return null;
                 }
-                default -> System.out.println("Opção inválida.");
+                default -> System.out.println("Opção invalida.");
             }
         }
     }
@@ -70,7 +70,7 @@ public class BankAccountView {
 
         if (newAccount != null) {
             System.out.println("\nConta criada com sucesso!");
-            System.out.printf("Agência: %s | Conta: %s%n", newAccount.agency(), newAccount.number());
+            System.out.printf("Agencia: %s | Conta: %s%n", newAccount.agency(), newAccount.number());
         }
         return newAccount;
     }
@@ -80,13 +80,13 @@ public class BankAccountView {
         boolean sessionActive = true;
 
         while (sessionActive) {
-            System.out.println("\n========= OPERAÇÕES BANCÁRIAS =========");
-            System.out.printf("Conta: %s | Agência: %s%n", currentAccount.number(), currentAccount.agency());
+            System.out.println("\n========= OPERAÇÕES BANCARIAS =========");
+            System.out.printf("Conta: %s | Agencia: %s%n", currentAccount.number(), currentAccount.agency());
             System.out.printf("Saldo Atual: R$ %.2f%n", currentAccount.balance());
             System.out.println("------------------------------------------");
-            System.out.println("[1] - Realizar Depósito");
+            System.out.println("[1] - Realizar Deposito");
             System.out.println("[2] - Realizar Saque");
-            System.out.println("[3] - Realizar Transferência");
+            System.out.println("[3] - Realizar Transferencia");
             System.out.println("[4] - Logout");
             System.out.print("Opção: ");
 
